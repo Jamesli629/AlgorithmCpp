@@ -1,7 +1,7 @@
 /*
 	Name: L1-002
 	Copyright: 
-	Author: Àî°Ø³± 
+	Author: çˆ±åƒèƒ–å¤´é±¼
 	Date: 14/01/22 14:14
 	Description: 
 */
@@ -14,7 +14,7 @@ int main()
     int n,h;
     char x;
     cin>>n>>x;
-    h=sqrt((n+1)/2);                             //hÎª(H+1)/2µÄËãÊõÆ½·½¸ù£¬H±íÊ¾É³Â©µÄ¸ß¶È 
+    h=sqrt((n+1)/2);                             //hÎª(H+1)/2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Hï¿½ï¿½Ê¾É³Â©ï¿½Ä¸ß¶ï¿½ 
     for(int i=h;i>=1;i--)
     {
     	for(int j=0;j<h-i;j++)cout<<" ";
