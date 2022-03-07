@@ -17,6 +17,7 @@ int main(){
     void quickSort(int num[N],int sz);
     void heapAdjust(int num[],int start,int end);
     void heapSort(int num[],int len);
+    void shellSort(int num[],int sz);
     int a[]={3,44,38,5,47,15,36,26,27,2,46,4,19,50,48};
     int sz=15;
     //bubbleSort(a,sz);
@@ -25,7 +26,8 @@ int main(){
     //mergeSort(a,15);
     //MergeSort(a,sz);
     //quickSort(a,sz);
-    heapSort(a,sz);
+    //heapSort(a,sz);
+    shellSort(a,sz);
     fors(k,0,sz){
         cout<<a[k]<<" ";
     }
@@ -216,5 +218,25 @@ void heapSort(int num[],int len){
     for(int i=len-1;i>0;i--){
         swap(num[0],num[i]);
         heapAdjust(num,0,i-1);
+    }
+}
+
+/**
+ * 希尔排序
+ * 不稳定排序
+ * 时间复杂度与增量delta有关
+ * 不适用于大量元素时，中小规模数据可以使用
+ */
+void shellSort(int num[],int sz){
+    int delta=1;
+    while(delta<sz/3){
+        delta = 3 * delta + 1; 
+    }
+    while(delta>=1){
+        for(int i=delta;i<sz;i++){
+            for(int j = i;j>=delta && num[j]<num[j-delta];j-=delta)
+                swap(num[j],num[j-delta]);
+        }
+        delta/=3;
     }
 }
