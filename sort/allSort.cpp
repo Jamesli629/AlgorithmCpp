@@ -15,6 +15,8 @@ int main(){
     int partition(int num[N],int low,int high);
     void qsort(int num[N],int s,int t);
     void quickSort(int num[N],int sz);
+    void heapAdjust(int num[],int start,int end);
+    void heapSort(int num[],int len);
     int a[]={3,44,38,5,47,15,36,26,27,2,46,4,19,50,48};
     int sz=15;
     //bubbleSort(a,sz);
@@ -22,7 +24,8 @@ int main(){
     //insertSort(a,sz);
     //mergeSort(a,15);
     //MergeSort(a,sz);
-    quickSort(a,sz);
+    //quickSort(a,sz);
+    heapSort(a,sz);
     fors(k,0,sz){
         cout<<a[k]<<" ";
     }
@@ -181,4 +184,37 @@ void qsort(int num[N],int s,int t){
 }
 void quickSort(int num[N],int sz){
     qsort(num,0,sz-1);
+}
+
+/**
+ * 堆排序
+ * 不稳定排序
+ * 时间复杂度：O(nlogn)
+ * 建堆和调整堆的开销较大，不适用于元素少时，适用于元素较多时。
+ * 在解决诸如“前n大的数”一类问题时，几乎是首选算法。
+ */
+void heapAdjust(int num[],int start,int end){
+    int dad = start;
+    int son = 2 * dad + 1;
+    while (son<=end)
+    {
+        if(son + 1 <=end && num[son]<num[son+1])
+            son++;
+        if(num[dad]>num[son])
+            return;
+        else{
+            swap(num[dad],num[son]);
+            dad = son;
+            son = 2 * dad + 1;
+        }
+    } 
+}
+void heapSort(int num[],int len){
+    for(int i = len /2-1;i>=0;i--){
+        heapAdjust(num,i,len-1);
+    }
+    for(int i=len-1;i>0;i--){
+        swap(num[0],num[i]);
+        heapAdjust(num,0,i-1);
+    }
 }
