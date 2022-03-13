@@ -15,11 +15,11 @@
 
 #include<bits/stdc++.h>
 using namespace std;
-const double eps=1e-8;
+const double eps=1e-8;//控制精度，保留两位小数就1e-4
 double n;
 int main(){
     cin>>n;
-    double l=-1e4,r=1e4;
+    double l=-1e4,r=1e4;     //答案可能的范围
     while(r-l>eps){
         double m=(r+l)/2;
         if(m*m*m>=n){
@@ -29,6 +29,6 @@ int main(){
             l=m;
         }
     }
-    printf("%.6lf",l);
+    printf("%.6lf",l);       //l即是答案
     return 0;
 }
