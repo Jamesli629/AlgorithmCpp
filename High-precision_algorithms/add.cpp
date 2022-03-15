@@ -2,6 +2,12 @@
 #include<vector>
 using namespace std;
 
+/**
+ * 高精度加法
+ * 两个数都是高精度数
+ * 用数组存放数值时，位数低的放在数组的前面，因为优先计算低位
+ * 结果数组输出的时候是逆序输出
+ */ 
 vector<int> add(vector<int>a,vector<int>b){
     vector<int>c;
     int x=0;
