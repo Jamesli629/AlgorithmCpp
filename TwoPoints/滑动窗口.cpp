@@ -30,7 +30,7 @@ int findmaxstring2(string s){
     int cnt=0,l=0,r=0;
     while(r<num){
         m[s[r]]++;
-        while(m[s[r]]==2){
+        while(l<r && m[s[r]]==2){
             m[s[l++]]--;
         }
         r++;
